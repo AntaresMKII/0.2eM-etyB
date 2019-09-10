@@ -1,4 +1,4 @@
-{
+const map3 = {
     "id": 3,
     "name": "map3",
     "tileset": "default",
