@@ -129,7 +129,8 @@ function startGame() { //prepares the game to start
     startButton.style.display = 'none'
     currentMap = 1;
     volume = gameMusic.volume/200
-    loadMap(map1);
+    tileMap = new Map(1);
+    tileMap.loadMap();
     countDownDate = Date.now()+720100;
     //sets the count down timer for the game and ends the game when the 12 minutes is over
     var timerCountText = document.getElementById('timer')

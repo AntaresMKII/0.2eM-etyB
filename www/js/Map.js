@@ -13,7 +13,16 @@ var nHelp = 5;
 
 class Map{
 	constructor(mapid){
-		
+		let temp = Map_data[mapid];
+		this.id = temp["id")];
+		this.name = temp["name"];
+		this.tileset = temp["tileset"];
+		this.collision = temp["collision-map"];
+		this.background = document.createElement("img");
+		this.background.src = temp["background"];
+		this.parallax = document.createElement("img");
+		this.parallax.src = temp["parallax"];
+		this.events = temp["events"];
 	}
 }
 
@@ -31,20 +40,21 @@ Array.prototype.collisionCheck = function(player){
     return result;
 }
 
-function loadMap(temp){
-    tileMap = new Array(temp.length);
-    tileMap = twoDArray(tileMap, temp[0].length);
-    for(i = 0; i < tileMap.length; i++)
-		for(j = 0; j < tileMap[i].length; j++)
+Map.prototype.loadMap = function(){
+	temp = this.collision;
+	this.collision = new Array(temp.length);
+	this.collision = twoDArray(this.collision, temp[0].length);
+    for(i = 0; i < temp.length; i++)
+		for(j = 0; j < this.collision[i].length; j++)
 		if(temp[i][j] == 2){
-			tileMap[i][j] = new Portal(32 * j, 32 * i, 32 * portals[counter] + 1, 32 * portals[counter + 1] + 1);
+			this.collision[i][j] = new Portal(32 * j, 32 * i, 32 * portals[counter] + 1, 32 * portals[counter + 1] + 1);
 			counter = counter + 2;
 		}
 		else if(temp[i][j] == 3){
-			tileMap[i][j] = new Coin(32 * j, 32 * i);
+			this.collision[i][j] = new Coin(32 * j, 32 * i);
 		}
 		else{
-			tileMap[i][j] = new Tile(32 * j, 32 * i, temp[i][j]);
+			this.collision[i][j] = new Tile(32 * j, 32 * i, temp[i][j]);
 		}
 
 }
