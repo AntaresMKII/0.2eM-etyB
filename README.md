@@ -1,2 +1,2 @@
-# 0.2eM-etyB
-The game is 900 x 900 (There will be 30 blocks where every block is 30 x 30 pixels).
+# ByteMe 2.0 Submission for Kinaxis 2019 Hackathon
+A 2d game where the player has to escape a maze by collecting hearts
